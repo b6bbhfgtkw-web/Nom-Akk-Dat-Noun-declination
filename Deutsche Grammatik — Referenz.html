@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Deutsche Grammatik — Referenz</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#16100d;color:#f0e6d3;font-family:'Georgia','Times New Roman',serif;min-height:100vh;padding:0 0 60px}
+.header{background:#1a130e;border-bottom:1px solid rgba(205,150,80,.2);padding:16px 20px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
+.logo{font-size:18px;font-weight:bold;color:#e8a855;letter-spacing:.04em}
+.subtitle{font-size:12px;color:#7a6050}
+.container{max-width:760px;margin:0 auto;padding:20px 16px 0}
+.nav{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid rgba(205,150,80,.15)}
+.tab{padding:6px 12px;font-size:12px;border:1px solid rgba(205,150,80,.25);background:transparent;border-radius:8px;cursor:pointer;color:#b09070;font-family:Georgia,serif;white-space:nowrap;transition:all .15s}
+.tab:hover{border-color:rgba(205,150,80,.5);color:#e8a855}
+.tab.act{background:rgba(205,150,80,.12);border-color:rgba(205,150,80,.5);color:#e8c890;font-weight:bold}
+.rnd{margin-left:auto;padding:6px 14px;font-size:12px;border:1px solid rgba(109,189,109,.3);background:transparent;border-radius:8px;cursor:pointer;color:#8aba8a;font-family:Georgia,serif;transition:all .15s}
+.rnd:hover{background:rgba(109,189,109,.1);border-color:rgba(109,189,109,.5)}
+.sec-title{font-size:17px;font-weight:bold;color:#e8c890;margin-bottom:4px}
+.sec-sub{font-size:13px;color:#8a7060;font-style:italic;margin-bottom:14px;line-height:1.5}
+.tbl{width:100%;border-collapse:separate;border-spacing:0;font-size:14px;margin-bottom:12px}
+.tbl thead th{font-weight:normal;font-size:11px;color:#7a6050;padding:5px 9px;border-bottom:1px solid rgba(205,150,80,.15);text-align:left;letter-spacing:.04em;text-transform:uppercase}
+.tbl tbody td{border-bottom:1px solid rgba(205,150,80,.07);padding:0;vertical-align:middle}
+.rl{color:#7a6050;font-size:12px;padding:8px 9px;font-style:italic}
+.c{cursor:pointer;padding:8px 9px;transition:background .13s;user-select:none;display:block;color:#f0e6d3;border-radius:4px}
+.c:hover{background:rgba(205,150,80,.1)}
+.c.on{background:rgba(205,150,80,.2);color:#e8c890;font-weight:bold}
+.c.rare{color:#5a4030}
+.c.on.rare{background:rgba(205,150,80,.2);color:#e8c890}
+.pat-title{font-size:14px;font-weight:bold;color:#e8a855;margin:20px 0 3px}
+.pat-sub{font-size:12px;color:#7a6050;font-style:italic;margin:0 0 6px;line-height:1.5}
+.stems{font-size:13px;color:#8a7060;margin:0 0 12px;line-height:1.7;padding:10px 14px;background:rgba(255,255,255,.03);border:1px solid rgba(205,150,80,.12);border-radius:8px}
+.stems strong{color:#e8c890}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.cmp-card{background:rgba(255,255,255,.03);border:1px solid rgba(205,150,80,.15);border-radius:8px;padding:11px 14px}
+.cmp-card h4{font-size:11px;font-weight:normal;letter-spacing:.06em;text-transform:uppercase;color:#7a6050;margin:0 0 7px}
+.cmp-card p{font-size:14px;margin:0 0 3px;line-height:1.5;color:#f0e6d3}
+.cmp-card .tr{font-size:12px;color:#6a5040;font-style:italic;margin:0}
+.hl2{font-weight:bold;background:rgba(232,168,85,.15);color:#e8c890;padding:0 4px;border-radius:3px}
+.det{margin-top:16px;padding:16px 18px;background:rgba(255,255,255,.03);border:1px solid rgba(205,150,80,.18);border-radius:12px;min-height:100px;transition:border-color .2s}
+.det.active{border-color:rgba(205,150,80,.4)}
+.det .df{font-size:22px;font-weight:bold;color:#e8c890;margin:0 0 2px}
+.det .dm{font-size:11px;color:#6a5040;margin:0 0 12px;letter-spacing:.03em}
+.det .de{font-size:15px;line-height:1.7;margin:0 0 4px;color:#f0e6d3}
+.det .de .hl{font-weight:bold;background:rgba(232,168,85,.18);color:#e8c890;padding:1px 5px;border-radius:3px}
+.det .dt{font-size:13px;color:#6a5040;margin:0;font-style:italic}
+.det .empty-msg{font-size:14px;color:#4a3020;font-style:italic}
+.sec{display:none}
+.sec.show{display:block}
+</style>
+</head>
+<body>
+<div class="header">
+  <div class="logo">🇩🇪 Grammatik-Referenz</div>
+  <div class="subtitle">ÖSD Zertifikat B2</div>
+</div>
+<div class="container">
+  <nav class="nav" id="nav">
+    <button class="tab act" data-tg="s1">Personalpronomen</button>
+    <button class="tab" data-tg="s2">Reflexivpronomen</button>
+    <button class="tab" data-tg="s3">Best. Artikel</button>
+    <button class="tab" data-tg="s4">Possessivartikel</button>
+    <button class="tab" data-tg="s5">Adjektivendungen</button>
+    <button class="tab" data-tg="s6">Possessivpronomen</button>
+    <button class="rnd" id="rnd-btn">&#9685; Zufall</button>
+  </nav>
+
+  <!-- S1 -->
+  <section class="sec show" id="s1">
+    <h2 class="sec-title">Personalpronomen</h2>
+    <p class="sec-sub">Genitivformen (blasse Farbe) sind heute fast nur noch literarisch.</p>
+    <table class="tbl"><thead><tr><th style="width:16%"></th><th>Nominativ</th><th>Akkusativ</th><th>Dativ</th><th>Genitiv</th></tr></thead><tbody>
+    <tr><td class="rl">ich</td><td><span class="c" data-k="p1sn">ich</span></td><td><span class="c" data-k="p1sa">mich</span></td><td><span class="c" data-k="p1sd">mir</span></td><td><span class="c rare" data-k="p1sg">meiner</span></td></tr>
+    <tr><td class="rl">du</td><td><span class="c" data-k="p2sn">du</span></td><td><span class="c" data-k="p2sa">dich</span></td><td><span class="c" data-k="p2sd">dir</span></td><td><span class="c rare" data-k="p2sg">deiner</span></td></tr>
+    <tr><td class="rl">er</td><td><span class="c" data-k="p3mn">er</span></td><td><span class="c" data-k="p3ma">ihn</span></td><td><span class="c" data-k="p3md">ihm</span></td><td><span class="c rare" data-k="p3mg">seiner</span></td></tr>
+    <tr><td class="rl">sie (Sg.)</td><td><span class="c" data-k="p3fn">sie</span></td><td><span class="c" data-k="p3fa">sie</span></td><td><span class="c" data-k="p3fd">ihr</span></td><td><span class="c rare" data-k="p3fg">ihrer</span></td></tr>
+    <tr><td class="rl">es</td><td><span class="c" data-k="p3nn">es</span></td><td><span class="c" data-k="p3na">es</span></td><td><span class="c" data-k="p3nd">ihm</span></td><td><span class="c rare" data-k="p3ng">seiner</span></td></tr>
+    <tr><td class="rl">wir</td><td><span class="c" data-k="p1pn">wir</span></td><td><span class="c" data-k="p1pa">uns</span></td><td><span class="c" data-k="p1pd">uns</span></td><td><span class="c rare" data-k="p1pg">unser</span></td></tr>
+    <tr><td class="rl">ihr</td><td><span class="c" data-k="p2pn">ihr</span></td><td><span class="c" data-k="p2pa">euch</span></td><td><span class="c" data-k="p2pd">euch</span></td><td><span class="c rare" data-k="p2pg">euer</span></td></tr>
+    <tr><td class="rl">sie (Pl.)</td><td><span class="c" data-k="p3pn">sie</span></td><td><span class="c" data-k="p3pa">sie</span></td><td><span class="c" data-k="p3pd">ihnen</span></td><td><span class="c rare" data-k="p3pg">ihrer</span></td></tr>
+    <tr><td class="rl">Sie (Höfl.)</td><td><span class="c" data-k="pSn">Sie</span></td><td><span class="c" data-k="pSa">Sie</span></td><td><span class="c" data-k="pSd">Ihnen</span></td><td><span class="c rare" data-k="pSg">Ihrer</span></td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- S2 -->
+  <section class="sec" id="s2">
+    <h2 class="sec-title">Reflexivpronomen</h2>
+    <p class="sec-sub">Identisch mit Personalpronomen — außer 3. Person & Höflichkeitsform: dort immer <em>sich</em>.</p>
+    <table class="tbl"><thead><tr><th style="width:28%">Person</th><th>Akkusativ</th><th>Dativ</th></tr></thead><tbody>
+    <tr><td class="rl">ich</td><td><span class="c" data-k="r1a">mich</span></td><td><span class="c" data-k="r1d">mir</span></td></tr>
+    <tr><td class="rl">du</td><td><span class="c" data-k="r2a">dich</span></td><td><span class="c" data-k="r2d">dir</span></td></tr>
+    <tr><td class="rl">er / sie / es</td><td><span class="c" data-k="r3a">sich</span></td><td><span class="c" data-k="r3d">sich</span></td></tr>
+    <tr><td class="rl">wir</td><td><span class="c" data-k="rWa">uns</span></td><td><span class="c" data-k="rWd">uns</span></td></tr>
+    <tr><td class="rl">ihr</td><td><span class="c" data-k="rIa">euch</span></td><td><span class="c" data-k="rId">euch</span></td></tr>
+    <tr><td class="rl">sie / Sie</td><td><span class="c" data-k="rPa">sich</span></td><td><span class="c" data-k="rPd">sich</span></td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- S3 -->
+  <section class="sec" id="s3">
+    <h2 class="sec-title">Bestimmter Artikel — der / die / das</h2>
+    <p class="sec-sub">Der bestimmte Artikel zeigt den Kasus klar an — Adjektive bekommen dahinter die schwache Endung.</p>
+    <table class="tbl"><thead><tr><th style="width:18%">Kasus</th><th>maskulin</th><th>feminin</th><th>neutrum</th><th>Plural</th></tr></thead><tbody>
+    <tr><td class="rl">Nom</td><td><span class="c" data-k="dnm">der</span></td><td><span class="c" data-k="dnf">die</span></td><td><span class="c" data-k="dnn">das</span></td><td><span class="c" data-k="dnp">die</span></td></tr>
+    <tr><td class="rl">Akk</td><td><span class="c" data-k="dam">den</span></td><td><span class="c" data-k="daf">die</span></td><td><span class="c" data-k="dan">das</span></td><td><span class="c" data-k="dap">die</span></td></tr>
+    <tr><td class="rl">Dat</td><td><span class="c" data-k="ddm">dem</span></td><td><span class="c" data-k="ddf">der</span></td><td><span class="c" data-k="ddn">dem</span></td><td><span class="c" data-k="ddp">den</span></td></tr>
+    <tr><td class="rl">Gen</td><td><span class="c" data-k="dgm">des</span></td><td><span class="c" data-k="dgf">der</span></td><td><span class="c" data-k="dgn">des</span></td><td><span class="c" data-k="dgp">der</span></td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- S4 -->
+  <section class="sec" id="s4">
+    <h2 class="sec-title">Possessivartikel — ein / kein / mein …</h2>
+    <p class="sec-sub">Alle ein-Wörter folgen demselben Muster. Plural zeigt kein- bzw. mein-, da <em>ein</em> keinen Plural hat.</p>
+    <table class="tbl"><thead><tr><th style="width:18%">Kasus</th><th>maskulin</th><th>feminin</th><th>neutrum</th><th>Plural</th></tr></thead><tbody>
+    <tr><td class="rl">Nom</td><td><span class="c" data-k="inm">ein</span></td><td><span class="c" data-k="inf">eine</span></td><td><span class="c" data-k="inn">ein</span></td><td><span class="c" data-k="inp">keine</span></td></tr>
+    <tr><td class="rl">Akk</td><td><span class="c" data-k="iam">einen</span></td><td><span class="c" data-k="iaf">eine</span></td><td><span class="c" data-k="ian">ein</span></td><td><span class="c" data-k="iap">keine</span></td></tr>
+    <tr><td class="rl">Dat</td><td><span class="c" data-k="idm">einem</span></td><td><span class="c" data-k="idf">einer</span></td><td><span class="c" data-k="idn">einem</span></td><td><span class="c" data-k="idp">meinen</span></td></tr>
+    <tr><td class="rl">Gen</td><td><span class="c" data-k="igm">eines</span></td><td><span class="c" data-k="igf">einer</span></td><td><span class="c" data-k="ign">eines</span></td><td><span class="c" data-k="igp">meiner</span></td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- S5 -->
+  <section class="sec" id="s5">
+    <h2 class="sec-title">Adjektivendungen</h2>
+    <p class="sec-sub">Drei Muster je nach Begleiter vor dem Adjektiv.</p>
+    <p class="pat-title">A · Schwache Deklination</p>
+    <p class="pat-sub">Nach der/die/das, dieser, jener, jeder, mancher, welcher, alle, beide …</p>
+    <table class="tbl"><thead><tr><th style="width:16%">Kasus</th><th>maskulin</th><th>feminin</th><th>neutrum</th><th>Plural</th></tr></thead><tbody>
+    <tr><td class="rl">Nom</td><td><span class="c" data-k="wnm">-e</span></td><td><span class="c" data-k="wnf">-e</span></td><td><span class="c" data-k="wnn">-e</span></td><td><span class="c" data-k="wnp">-en</span></td></tr>
+    <tr><td class="rl">Akk</td><td><span class="c" data-k="wam">-en</span></td><td><span class="c" data-k="waf">-e</span></td><td><span class="c" data-k="wan">-e</span></td><td><span class="c" data-k="wap">-en</span></td></tr>
+    <tr><td class="rl">Dat</td><td><span class="c" data-k="wdm">-en</span></td><td><span class="c" data-k="wdf">-en</span></td><td><span class="c" data-k="wdn">-en</span></td><td><span class="c" data-k="wdp">-en</span></td></tr>
+    <tr><td class="rl">Gen</td><td><span class="c" data-k="wgm">-en</span></td><td><span class="c" data-k="wgf">-en</span></td><td><span class="c" data-k="wgn">-en</span></td><td><span class="c" data-k="wgp">-en</span></td></tr>
+    </tbody></table>
+    <p class="pat-title">B · Gemischte Deklination</p>
+    <p class="pat-sub">Nach ein, kein, mein, dein, sein, ihr, unser, euer, Ihr.</p>
+    <table class="tbl"><thead><tr><th style="width:16%">Kasus</th><th>maskulin</th><th>feminin</th><th>neutrum</th><th>Plural</th></tr></thead><tbody>
+    <tr><td class="rl">Nom</td><td><span class="c" data-k="mnm">-er</span></td><td><span class="c" data-k="mnf">-e</span></td><td><span class="c" data-k="mnn">-es</span></td><td><span class="c" data-k="mnp">-en</span></td></tr>
+    <tr><td class="rl">Akk</td><td><span class="c" data-k="mam">-en</span></td><td><span class="c" data-k="maf">-e</span></td><td><span class="c" data-k="man">-es</span></td><td><span class="c" data-k="map">-en</span></td></tr>
+    <tr><td class="rl">Dat</td><td><span class="c" data-k="mdm">-en</span></td><td><span class="c" data-k="mdf">-en</span></td><td><span class="c" data-k="mdn">-en</span></td><td><span class="c" data-k="mdp">-en</span></td></tr>
+    <tr><td class="rl">Gen</td><td><span class="c" data-k="mgm">-en</span></td><td><span class="c" data-k="mgf">-en</span></td><td><span class="c" data-k="mgn">-en</span></td><td><span class="c" data-k="mgp">-en</span></td></tr>
+    </tbody></table>
+    <p class="pat-title">C · Starke Deklination</p>
+    <p class="pat-sub">Ohne Artikel — nach Nullartikel, Mengenangaben, Plural ohne Begleiter.</p>
+    <table class="tbl"><thead><tr><th style="width:16%">Kasus</th><th>maskulin</th><th>feminin</th><th>neutrum</th><th>Plural</th></tr></thead><tbody>
+    <tr><td class="rl">Nom</td><td><span class="c" data-k="snm">-er</span></td><td><span class="c" data-k="snf">-e</span></td><td><span class="c" data-k="snn">-es</span></td><td><span class="c" data-k="snp">-e</span></td></tr>
+    <tr><td class="rl">Akk</td><td><span class="c" data-k="sam">-en</span></td><td><span class="c" data-k="saf">-e</span></td><td><span class="c" data-k="san">-es</span></td><td><span class="c" data-k="sap">-e</span></td></tr>
+    <tr><td class="rl">Dat</td><td><span class="c" data-k="sdm">-em</span></td><td><span class="c" data-k="sdf">-er</span></td><td><span class="c" data-k="sdn">-em</span></td><td><span class="c" data-k="sdp">-en</span></td></tr>
+    <tr><td class="rl">Gen</td><td><span class="c" data-k="sgm">-en</span></td><td><span class="c" data-k="sgf">-er</span></td><td><span class="c" data-k="sgn">-en</span></td><td><span class="c" data-k="sgp">-er</span></td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- S6 -->
+  <section class="sec" id="s6">
+    <h2 class="sec-title">Possessivpronomen</h2>
+    <div class="cmp">
+      <div class="cmp-card"><h4>Possessivartikel — vor dem Nomen</h4><p>Das ist <span class="hl2">mein</span> Auto.</p><p class="tr">That is my car.</p></div>
+      <div class="cmp-card"><h4>Possessivpronomen — ersetzt das Nomen</h4><p>Das Auto ist <span class="hl2">meins</span>.</p><p class="tr">That car is mine.</p></div>
+    </div>
+    <p class="stems"><strong>Stämme:</strong> mein- · dein- · sein- (er/es) · ihr- (sie Sg.) · unser- · euer- · ihr- (sie Pl.) · Ihr- (Höfl.) — alle mit denselben Endungen.</p>
+    <table class="tbl"><thead><tr><th style="width:16%">Kasus</th><th>maskulin</th><th>feminin</th><th>neutrum</th><th>Plural</th></tr></thead><tbody>
+    <tr><td class="rl">Nom</td><td><span class="c" data-k="ppnm">meiner</span></td><td><span class="c" data-k="ppnf">meine</span></td><td><span class="c" data-k="ppnn">meins/meines</span></td><td><span class="c" data-k="ppnp">meine</span></td></tr>
+    <tr><td class="rl">Akk</td><td><span class="c" data-k="ppam">meinen</span></td><td><span class="c" data-k="ppaf">meine</span></td><td><span class="c" data-k="ppan">meins/meines</span></td><td><span class="c" data-k="ppap">meine</span></td></tr>
+    <tr><td class="rl">Dat</td><td><span class="c" data-k="ppdm">meinem</span></td><td><span class="c" data-k="ppdf">meiner</span></td><td><span class="c" data-k="ppdn">meinem</span></td><td><span class="c" data-k="ppdp">meinen</span></td></tr>
+    <tr><td class="rl">Gen</td><td><span class="c rare" data-k="ppgm">meines</span></td><td><span class="c rare" data-k="ppgf">meiner</span></td><td><span class="c rare" data-k="ppgn">meines</span></td><td><span class="c rare" data-k="ppgp">meiner</span></td></tr>
+    </tbody></table>
+  </section>
+
+  <!-- Detail panel -->
+  <div class="det" id="det">
+    <p class="empty-msg">Klick auf eine Form in der Tabelle — oder drücke „Zufall" zum Üben.</p>
+  </div>
+</div>
+
+<script>
+const E={
+p1sn:["ich","{Ich} lerne jeden Tag Deutsch.","I learn German every day.","Personalpronomen · 1. Sg. · Nom"],
+p1sa:["mich","Mein Freund versteht {mich} sehr gut.","My friend understands me very well.","Personalpronomen · 1. Sg. · Akk"],
+p1sd:["mir","Kannst du {mir} bitte helfen?","Can you please help me?","Personalpronomen · 1. Sg. · Dat"],
+p1sg:["meiner","Sie erinnerte sich {meiner}.","She remembered me.","Personalpronomen · 1. Sg. · Gen (literarisch)"],
+p2sn:["du","{Du} sprichst sehr gut Deutsch.","You speak very good German.","Personalpronomen · 2. Sg. · Nom"],
+p2sa:["dich","Ich rufe {dich} morgen an.","I'll call you tomorrow.","Personalpronomen · 2. Sg. · Akk"],
+p2sd:["dir","Das gehört {dir}.","That belongs to you.","Personalpronomen · 2. Sg. · Dat"],
+p2sg:["deiner","Wir gedenken {deiner}.","We remember you.","Personalpronomen · 2. Sg. · Gen (selten)"],
+p3mn:["er","{Er} kommt aus Berlin.","He's from Berlin.","Personalpronomen · 3. Sg. m. · Nom"],
+p3ma:["ihn","Ich sehe {ihn} jeden Morgen im Bus.","I see him every morning on the bus.","Personalpronomen · 3. Sg. m. · Akk"],
+p3md:["ihm","Ich vertraue {ihm} völlig.","I completely trust him.","Personalpronomen · 3. Sg. m. · Dat"],
+p3mg:["seiner","Wir bedürfen {seiner} nicht.","We do not need him.","Personalpronomen · 3. Sg. m. · Gen (selten)"],
+p3fn:["sie","{Sie} arbeitet als Ärztin.","She works as a doctor.","Personalpronomen · 3. Sg. f. · Nom"],
+p3fa:["sie","Hast du {sie} schon getroffen?","Have you met her yet?","Personalpronomen · 3. Sg. f. · Akk"],
+p3fd:["ihr","Ich danke {ihr} herzlich.","I thank her warmly.","Personalpronomen · 3. Sg. f. · Dat"],
+p3fg:["ihrer","Er erinnerte sich {ihrer} mit Freude.","He remembered her with joy.","Personalpronomen · 3. Sg. f. · Gen (selten)"],
+p3nn:["es","{Es} regnet seit gestern.","It has been raining since yesterday.","Personalpronomen · 3. Sg. n. · Nom"],
+p3na:["es","Ich habe {es} im Regal gelassen.","I left it on the shelf.","Personalpronomen · 3. Sg. n. · Akk"],
+p3nd:["ihm","Gib dem Kind, was {ihm} gehört.","Give the child what belongs to it.","Personalpronomen · 3. Sg. n. · Dat"],
+p3ng:["seiner","Sie war {seiner} überdrüssig.","She was tired of it.","Personalpronomen · 3. Sg. n. · Gen (selten)"],
+p1pn:["wir","{Wir} fahren morgen früh los.","We're leaving early tomorrow.","Personalpronomen · 1. Pl. · Nom"],
+p1pa:["uns","Sie haben {uns} herzlich eingeladen.","They warmly invited us.","Personalpronomen · 1. Pl. · Akk"],
+p1pd:["uns","Sie hat {uns} sehr geholfen.","She helped us a lot.","Personalpronomen · 1. Pl. · Dat"],
+p1pg:["unser","Erbarme dich {unser}.","Have mercy on us.","Personalpronomen · 1. Pl. · Gen (biblisch)"],
+p2pn:["ihr","Wo seid {ihr} gerade?","Where are you all right now?","Personalpronomen · 2. Pl. · Nom"],
+p2pa:["euch","Ich höre {euch} laut und deutlich.","I hear you all loud and clear.","Personalpronomen · 2. Pl. · Akk"],
+p2pd:["euch","Das gefällt {euch} bestimmt.","I'm sure you all will like that.","Personalpronomen · 2. Pl. · Dat"],
+p2pg:["euer","Wir gedenken {euer}.","We remember you all.","Personalpronomen · 2. Pl. · Gen (selten)"],
+p3pn:["sie","{Sie} kommen heute Abend zu uns.","They're coming over tonight.","Personalpronomen · 3. Pl. · Nom"],
+p3pa:["sie","Ich kenne {sie} schon seit Jahren.","I've known them for years.","Personalpronomen · 3. Pl. · Akk"],
+p3pd:["ihnen","Ich gebe {ihnen} die Schlüssel.","I'm giving them the keys.","Personalpronomen · 3. Pl. · Dat"],
+p3pg:["ihrer","Wir gedenken {ihrer} in Liebe.","We remember them with love.","Personalpronomen · 3. Pl. · Gen (selten)"],
+pSn:["Sie","Sind {Sie} Frau Müller?","Are you Frau Müller?","Personalpronomen · Höfl. · Nom"],
+pSa:["Sie","Darf ich {Sie} kurz etwas fragen?","May I ask you something briefly?","Personalpronomen · Höfl. · Akk"],
+pSd:["Ihnen","Wie geht es {Ihnen} heute?","How are you today?","Personalpronomen · Höfl. · Dat"],
+pSg:["Ihrer","Ich entsinne mich {Ihrer} sehr gut.","I remember you very well.","Personalpronomen · Höfl. · Gen (selten)"],
+r1a:["mich","Ich wasche {mich} jeden Morgen.","I wash myself every morning.","Reflexivpronomen · ich · Akk"],
+r1d:["mir","Ich putze {mir} die Zähne.","I'm brushing my teeth.","Reflexivpronomen · ich · Dat"],
+r2a:["dich","Du beeilst {dich} besser!","You'd better hurry up!","Reflexivpronomen · du · Akk"],
+r2d:["dir","Kauf {dir} doch etwas Schönes!","Go buy yourself something nice!","Reflexivpronomen · du · Dat"],
+r3a:["sich","Er rasiert {sich} jeden Tag.","He shaves every day.","Reflexivpronomen · er/sie/es · Akk"],
+r3d:["sich","Sie gönnt {sich} einen Urlaub.","She treats herself to a vacation.","Reflexivpronomen · er/sie/es · Dat"],
+rWa:["uns","Wir treffen {uns} um sieben Uhr.","We're meeting at seven.","Reflexivpronomen · wir · Akk"],
+rWd:["uns","Wir wünschen {uns} mehr Zeit.","We wish we had more time.","Reflexivpronomen · wir · Dat"],
+rIa:["euch","Setzt {euch} bitte hin!","Please sit down!","Reflexivpronomen · ihr · Akk"],
+rId:["euch","Holt {euch} was zu trinken!","Get yourselves something to drink!","Reflexivpronomen · ihr · Dat"],
+rPa:["sich","Sie freuen {sich} riesig.","They're really happy.","Reflexivpronomen · sie/Sie · Akk"],
+rPd:["sich","Sie kaufen {sich} ein neues Haus.","They're buying themselves a new house.","Reflexivpronomen · sie/Sie · Dat"],
+dnm:["der","{Der} Mann liest die Zeitung.","The man is reading the newspaper.","Best. Artikel · mask. · Nom"],
+dnf:["die","{Die} Frau singt wunderschön.","The woman sings beautifully.","Best. Artikel · fem. · Nom"],
+dnn:["das","{Das} Kind schläft schon.","The child is already sleeping.","Best. Artikel · neutr. · Nom"],
+dnp:["die","{Die} Bücher sind ziemlich teuer.","The books are quite expensive.","Best. Artikel · Pl. · Nom"],
+dam:["den","Ich kenne {den} Mann von der Arbeit.","I know the man from work.","Best. Artikel · mask. · Akk"],
+daf:["die","Ich besuche {die} Frau morgen.","I'll visit the woman tomorrow.","Best. Artikel · fem. · Akk"],
+dan:["das","Ich sehe {das} Kind im Garten.","I see the child in the garden.","Best. Artikel · neutr. · Akk"],
+dap:["die","Ich kaufe {die} Bücher online.","I'm buying the books online.","Best. Artikel · Pl. · Akk"],
+ddm:["dem","Ich helfe {dem} Mann beim Tragen.","I'm helping the man carry things.","Best. Artikel · mask. · Dat"],
+ddf:["der","Ich glaube {der} Frau jedes Wort.","I believe every word the woman says.","Best. Artikel · fem. · Dat"],
+ddn:["dem","Ich gebe {dem} Kind ein Geschenk.","I'm giving the child a present.","Best. Artikel · neutr. · Dat"],
+ddp:["den","Ich danke {den} Lehrern für ihre Geduld.","I thank the teachers for their patience.","Best. Artikel · Pl. · Dat (Lehrern +n)"],
+dgm:["des","Das Auto {des} Mannes ist rot.","The man's car is red.","Best. Artikel · mask. · Gen (Mannes +s)"],
+dgf:["der","Die Tasche {der} Frau ist neu.","The woman's bag is new.","Best. Artikel · fem. · Gen"],
+dgn:["des","Das Spielzeug {des} Kindes liegt am Boden.","The child's toy is on the floor.","Best. Artikel · neutr. · Gen (Kindes +s)"],
+dgp:["der","Die Meinungen {der} Leute gehen auseinander.","The people's opinions diverge.","Best. Artikel · Pl. · Gen"],
+inm:["ein","{Ein} Mann steht vor der Tür.","A man is at the door.","Unbest. Artikel · mask. · Nom"],
+inf:["eine","{Eine} Frau ruft gerade an.","A woman is calling right now.","Unbest. Artikel · fem. · Nom"],
+inn:["ein","{Ein} Kind weint im Park.","A child is crying in the park.","Unbest. Artikel · neutr. · Nom"],
+inp:["keine","{Keine} Bücher liegen mehr hier.","No books are left here.","kein- · Pl. · Nom"],
+iam:["einen","Ich brauche {einen} neuen Stift.","I need a new pen.","Unbest. Artikel · mask. · Akk"],
+iaf:["eine","Ich habe {eine} interessante Idee.","I have an interesting idea.","Unbest. Artikel · fem. · Akk"],
+ian:["ein","Ich kaufe {ein} Buch über Geschichte.","I'm buying a book about history.","Unbest. Artikel · neutr. · Akk"],
+iap:["keine","Ich habe {keine} Fragen mehr.","I have no more questions.","kein- · Pl. · Akk"],
+idm:["einem","Ich helfe {einem} guten Freund.","I'm helping a good friend.","Unbest. Artikel · mask. · Dat"],
+idf:["einer","Mit {einer} Tasse Kaffee fängt der Tag besser an.","The day starts better with a cup of coffee.","Unbest. Artikel · fem. · Dat"],
+idn:["einem","In {einem} kleinen Haus auf dem Land.","In a small house in the countryside.","Unbest. Artikel · neutr. · Dat"],
+idp:["meinen","Ich fahre mit {meinen} Freunden ans Meer.","I'm going to the sea with my friends.","Possessivartikel · Pl. · Dat (Freunden +n)"],
+igm:["eines","Das Hobby {eines} Freundes ist Schach.","A friend's hobby is chess.","Unbest. Artikel · mask. · Gen"],
+igf:["einer","Der Anfang {einer} langen Geschichte.","The beginning of a long story.","Unbest. Artikel · fem. · Gen"],
+ign:["eines","Der Titel {eines} bekannten Buches.","The title of a well-known book.","Unbest. Artikel · neutr. · Gen"],
+igp:["meiner","Die Idee {meiner} Eltern war super.","My parents' idea was great.","Possessivartikel · Pl. · Gen"],
+wnm:["-e","{Der nette Mann} hilft mir oft.","The nice man often helps me.","Schwach · mask. · Nom (nach der/dieser …)"],
+wnf:["-e","{Die nette Frau} wohnt nebenan.","The nice woman lives next door.","Schwach · fem. · Nom"],
+wnn:["-e","{Das nette Kind} lacht viel.","The nice child laughs a lot.","Schwach · neutr. · Nom"],
+wnp:["-en","{Die netten Leute} warten draußen.","The nice people are waiting outside.","Schwach · Pl. · Nom"],
+wam:["-en","Ich treffe {den netten Mann} morgen.","I'm meeting the nice man tomorrow.","Schwach · mask. · Akk"],
+waf:["-e","Ich besuche {die nette Frau}.","I'm visiting the nice woman.","Schwach · fem. · Akk"],
+wan:["-e","Ich kenne {das nette Kind}.","I know the nice child.","Schwach · neutr. · Akk"],
+wap:["-en","Ich grüße {die netten Leute}.","I greet the nice people.","Schwach · Pl. · Akk"],
+wdm:["-en","Ich helfe {dem netten Mann} oft.","I often help the nice man.","Schwach · mask. · Dat"],
+wdf:["-en","Ich danke {der netten Frau}.","I thank the nice woman.","Schwach · fem. · Dat"],
+wdn:["-en","Ich gebe {dem netten Kind} ein Buch.","I give the nice child a book.","Schwach · neutr. · Dat"],
+wdp:["-en","Ich helfe {den netten Leuten} gerne.","I'm happy to help the nice people.","Schwach · Pl. · Dat (Leuten +n)"],
+wgm:["-en","das Auto {des netten Mannes}","the nice man's car","Schwach · mask. · Gen"],
+wgf:["-en","die Tasche {der netten Frau}","the nice woman's bag","Schwach · fem. · Gen"],
+wgn:["-en","das Spielzeug {des netten Kindes}","the nice child's toy","Schwach · neutr. · Gen"],
+wgp:["-en","die Stimmen {der netten Leute}","the nice people's voices","Schwach · Pl. · Gen"],
+mnm:["-er","{Ein netter Mann} hat mir geholfen.","A nice man helped me.","Gemischt · mask. · Nom (nach ein/kein/mein …)"],
+mnf:["-e","{Eine nette Frau} ruft uns an.","A nice woman is calling us.","Gemischt · fem. · Nom"],
+mnn:["-es","{Ein nettes Kind} kommt vorbei.","A nice child comes by.","Gemischt · neutr. · Nom"],
+mnp:["-en","{Meine netten Freunde} sind da.","My nice friends are here.","Gemischt · Pl. · Nom"],
+mam:["-en","Ich kenne {einen netten Mann}.","I know a nice man.","Gemischt · mask. · Akk"],
+maf:["-e","Ich treffe {eine nette Frau}.","I'm meeting a nice woman.","Gemischt · fem. · Akk"],
+man:["-es","Ich sehe {ein nettes Kind}.","I see a nice child.","Gemischt · neutr. · Akk"],
+map:["-en","Ich grüße {meine netten Freunde}.","I greet my nice friends.","Gemischt · Pl. · Akk"],
+mdm:["-en","Ich helfe {einem netten Mann}.","I help a nice man.","Gemischt · mask. · Dat"],
+mdf:["-en","Ich danke {einer netten Frau}.","I thank a nice woman.","Gemischt · fem. · Dat"],
+mdn:["-en","Ich spiele mit {einem netten Kind}.","I'm playing with a nice child.","Gemischt · neutr. · Dat"],
+mdp:["-en","Ich fahre mit {meinen netten Freunden}.","I'm traveling with my nice friends.","Gemischt · Pl. · Dat"],
+mgm:["-en","das Auto {eines netten Mannes}","a nice man's car","Gemischt · mask. · Gen"],
+mgf:["-en","die Stimme {einer netten Frau}","a nice woman's voice","Gemischt · fem. · Gen"],
+mgn:["-en","das Lachen {eines netten Kindes}","a nice child's laugh","Gemischt · neutr. · Gen"],
+mgp:["-en","die Pläne {meiner netten Freunde}","my nice friends' plans","Gemischt · Pl. · Gen"],
+snm:["-er","{Guter Wein} ist nicht billig.","Good wine isn't cheap.","Stark · mask. · Nom (ohne Artikel)"],
+snf:["-e","{Frische Luft} tut gut.","Fresh air is good for you.","Stark · fem. · Nom"],
+snn:["-es","{Kaltes Wasser} erfrischt.","Cold water refreshes.","Stark · neutr. · Nom"],
+snp:["-e","{Nette Leute} findet man überall.","You find nice people everywhere.","Stark · Pl. · Nom"],
+sam:["-en","Ich trinke gern {guten Wein}.","I like to drink good wine.","Stark · mask. · Akk"],
+saf:["-e","Ich liebe {frische Luft}.","I love fresh air.","Stark · fem. · Akk"],
+san:["-es","Ich trinke {kaltes Wasser}.","I drink cold water.","Stark · neutr. · Akk"],
+sap:["-e","Ich kenne {nette Leute} aus dem Verein.","I know nice people from the club.","Stark · Pl. · Akk"],
+sdm:["-em","Mit {gutem Wein} schmeckt das Essen besser.","Food tastes better with good wine.","Stark · mask. · Dat"],
+sdf:["-er","Mit {frischer Luft} denke ich klarer.","With fresh air I think more clearly.","Stark · fem. · Dat"],
+sdn:["-em","Mit {kaltem Wasser} wache ich richtig auf.","Cold water really wakes me up.","Stark · neutr. · Dat"],
+sdp:["-en","Mit {netten Leuten} ist jede Reise schön.","Every trip is nice with nice people.","Stark · Pl. · Dat"],
+sgm:["-en","der Geschmack {guten Weines}","the taste of good wine","Stark · mask. · Gen"],
+sgf:["-er","trotz {frischer Luft} bin ich müde.","despite fresh air, I'm tired.","Stark · fem. · Gen"],
+sgn:["-en","der Geschmack {kalten Wassers}","the taste of cold water","Stark · neutr. · Gen"],
+sgp:["-er","die Meinung {netter Leute}","the opinion of nice people","Stark · Pl. · Gen"],
+ppnm:["meiner","Dein Hund ist klein, {meiner} ist groß.","Your dog is small, mine is big.","Possessivpronomen · mask. · Nom"],
+ppnf:["meine","Deine Tasche ist neu, {meine} ist alt.","Your bag is new, mine is old.","Possessivpronomen · fem. · Nom"],
+ppnn:["meins / meines","Dein Auto ist rot, {meins} ist blau.","Your car is red, mine is blue.","Possessivpronomen · neutr. · Nom (meins = umg.)"],
+ppnp:["meine","Deine Schuhe sind weiß, {meine} sind schwarz.","Your shoes are white, mine are black.","Possessivpronomen · Pl. · Nom"],
+ppam:["meinen","Du hast deinen Stift, ich brauche {meinen}.","You have your pen, I need mine.","Possessivpronomen · mask. · Akk"],
+ppaf:["meine","Du hast deine Brille, ich suche {meine}.","You have your glasses, I'm looking for mine.","Possessivpronomen · fem. · Akk"],
+ppan:["meins / meines","Du hast dein Buch, ich habe {meins} vergessen.","You have your book, I forgot mine.","Possessivpronomen · neutr. · Akk"],
+ppap:["meine","Du nimmst deine Schlüssel, ich nehme {meine}.","You take your keys, I'll take mine.","Possessivpronomen · Pl. · Akk"],
+ppdm:["meinem","Du fährst mit deinem Auto, ich fahre mit {meinem}.","You drive your car, I drive mine.","Possessivpronomen · mask. · Dat"],
+ppdf:["meiner","Du sprichst mit deiner Mutter, ich spreche mit {meiner}.","You talk to your mother, I talk to mine.","Possessivpronomen · fem. · Dat"],
+ppdn:["meinem","Du spielst mit deinem Kind, ich spiele mit {meinem}.","You play with your child, I play with mine.","Possessivpronomen · neutr. · Dat"],
+ppdp:["meinen","Du gehst mit deinen Freunden aus, ich gehe mit {meinen}.","You go out with your friends, I go with mine.","Possessivpronomen · Pl. · Dat"],
+ppgm:["meines","Selten — heute sagt man fast immer 'von mir' statt {meines}.","Rare — modern German uses 'von mir' instead.","Possessivpronomen · mask. · Gen (kaum gebräuchlich)"],
+ppgf:["meiner","Selten — heute sagt man fast immer 'von mir' statt {meiner}.","Rare — modern German uses 'von mir' instead.","Possessivpronomen · fem. · Gen (kaum gebräuchlich)"],
+ppgn:["meines","Selten — heute sagt man fast immer 'von mir' statt {meines}.","Rare — modern German uses 'von mir' instead.","Possessivpronomen · neutr. · Gen (kaum gebräuchlich)"],
+ppgp:["meiner","Selten — heute sagt man fast immer 'von mir' statt {meiner}.","Rare — modern German uses 'von mir' instead.","Possessivpronomen · Pl. · Gen (kaum gebräuchlich)"]
+};
+
+function getSecId(k){
+  if(k.startsWith('pp'))return's6';
+  if(k[0]==='r')return's2';
+  if(k[0]==='d')return's3';
+  if(k[0]==='i')return's4';
+  if(k[0]==='w'||k[0]==='m'||k[0]==='s')return's5';
+  return's1';
+}
+
+function switchSec(sid){
+  document.querySelectorAll('.tab').forEach(x=>x.classList.remove('act'));
+  document.querySelector('[data-tg="'+sid+'"]').classList.add('act');
+  document.querySelectorAll('.sec').forEach(s=>s.classList.remove('show'));
+  document.getElementById(sid).classList.add('show');
+}
+
+function show(k){
+  const d=E[k];if(!d)return;
+  switchSec(getSecId(k));
+  const r=document.getElementById('det');
+  r.classList.add('active');
+  r.innerHTML='<p class="df">'+d[0]+'</p><p class="dm">'+d[3]+'</p><p class="de">'+d[1].replace(/\{([^}]+)\}/g,'<span class="hl">$1</span>')+'</p><p class="dt">'+d[2]+'</p>';
+  document.querySelectorAll('.c.on').forEach(c=>c.classList.remove('on'));
+  const t=document.querySelector('[data-k="'+k+'"]');
+  if(t)t.classList.add('on');
+  r.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+
+document.querySelectorAll('.c').forEach(c=>{
+  c.addEventListener('click',()=>show(c.dataset.k));
+});
+
+document.querySelectorAll('.tab').forEach(t=>{
+  t.addEventListener('click',()=>{
+    switchSec(t.dataset.tg);
+    const r=document.getElementById('det');
+    r.classList.remove('active');
+    r.innerHTML='<p class="empty-msg">Klick auf eine Form in der Tabelle — oder drücke „Zufall" zum Üben.</p>';
+    document.querySelectorAll('.c.on').forEach(c=>c.classList.remove('on'));
+  });
+});
+
+document.getElementById('rnd-btn').addEventListener('click',()=>{
+  const keys=Object.keys(E);
+  show(keys[Math.floor(Math.random()*keys.length)]);
+});
+</script>
+</body>
+</html>
